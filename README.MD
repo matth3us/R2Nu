@@ -1,4 +1,4 @@
-# RNuu-D2
+# RNu-D2
 
 Os códigos desse repositório servem para extrair e limpar os dados da fatura atual do Nubank. As transações da fatura atual do Nubank, disponíveis na página inicial do Nubank, são transformado num CSV que pode ser utilizado para organizar o orçamento. No futuro, em vez de CSV, será possível conectar diretamente com API do [YNAB](https://www.youneedabudget.com/), permitindo atualizar o orçamento no YNAB com transações do Nubank de forma automática, sem precisar por os dados manualmente, como hoje. 
 
