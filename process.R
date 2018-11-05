@@ -1,7 +1,7 @@
 library(tidyverse)
 library(stringr)
 library(lubridate)
-atual <- read_csv('data_2018_11_03.csv') %>% 
+atual <- read_csv(file.choose()) %>% 
   mutate(
     categoria = as.factor(categoria), 
     payee = as.factor(payee),
