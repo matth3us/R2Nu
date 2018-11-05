@@ -1,4 +1,4 @@
-# R2NU
+# RNU-D2
 
 Os códigos desse repositório servem para retirar os dados da fatura atual do Nubank como disponível no site deles para uso em CSV.
 
