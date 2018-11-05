@@ -4,7 +4,9 @@ Os códigos desse repositório servem para extrair e limpar os dados da fatura a
 
 ## Pra que isso?
 
-O Nubank permite a extração de faturas passadas em CSV, mas os dados de faturas ainda não fechadas, do mês corrente, não podem ser exportadas da mesma forma. Como tal, para se fazer a organização de orçamento com dados do Nubank deve ser feita de forma completamente manual. 
+O Nubank permite a extração de faturas passadas em CSV, mas os dados de faturas ainda não fechadas, do mês corrente, não podem ser exportadas da mesma forma. Como tal, a organização das transações do Nubank num orçamenton deve ser feita de forma completamente manual. 
+
+Isso é especialmente tedioso no caso do aplicativo YNAB, que possui a filosofia "Roll with the punches": o orçamento é um plano vivo, que deve ser atualizado constamente e, portanto, as transações devem estar sempre atualizadas. Dessa forma, para ele funcionar, no caso do Nubank, o melhor é atualizar imediatamente ou poucos dias depois de se fazer uma transação, o que pode ser um entrave para a própria utilização do app.
 
 Certamente há uma maneira melhor de fazer isso. 
 
