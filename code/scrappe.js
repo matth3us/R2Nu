@@ -1,4 +1,7 @@
 var pagamentos = artoo.scrape('.event-card.transaction.card_present, .event-card.event.payment, .event-card.transaction.card_not_present', {
+  id:{
+    attr: 'id'
+  },
   categoria: {
     sel: '.title',
     method: 'text'
@@ -21,4 +24,15 @@ var pagamentos = artoo.scrape('.event-card.transaction.card_present, .event-card
   },
 });
 
-artoo.saveCsv(pagamentos);
+function addZero(dat){
+  var str = String(dat);
+  if(str.length < 2){return ['0', str].join('');}
+  else{return str;}
+}
+
+var hoje = new Date();
+var nome = ['nubank_',
+            [hoje.getFullYear(), addZero(hoje.getMonth()), addZero(hoje.getDay())].join('-')
+          ].join('');
+
+artoo.saveJson(pagamentos, {filename: nome});
