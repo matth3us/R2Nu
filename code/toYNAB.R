@@ -1,6 +1,6 @@
 library(tidyverse)
-#3 de novembro: selecionar apenas os dados a partir de 3 de outubro
 
+atual <- readRDS('./data_rds/nubank_2018-11-16.RDS') %>%  select(-id)
 #Juntar diversos arquivos RDS
 #Identificar CSV mais novo
 #Usar CSV mais novo para identificar apenas as transa??es novas

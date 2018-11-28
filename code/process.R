@@ -7,8 +7,9 @@ atual <- fromJSON(file.choose())
 atual <- atual %>% 
   mutate(
     categoria = as.factor(categoria), 
-    payee = as.factor(payee),
     Payee = payee,
+    Payee = ifelse(categoria == 'Pagamento recebido', 'Pagamento recebido', payee),
+    payee = as.factor(payee),
     dia  = dmy(paste(dia, " 2018")),
     Date = dia,
     valor = str_extract(valor, "[\\d,]+"),
@@ -20,4 +21,3 @@ atual <- atual %>%
   select(id, Date, Payee, Memo, Outflow, Inflow)
 
 saveRDS(atual, file = paste("nubank_",ymd(today()),".RDS",  sep = ""))
-
