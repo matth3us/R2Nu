@@ -32,7 +32,7 @@ function addZero(dat){
 
 var hoje = new Date();
 var nome = ['nubank_',
-            [hoje.getFullYear(), addZero(hoje.getMonth()), addZero(hoje.getDay())].join('-')
+            [hoje.getFullYear(), addZero(hoje.getMonth()+1), addZero(hoje.getDate())].join('-')
           ].join('');
 
 artoo.saveJson(pagamentos, {filename: nome});

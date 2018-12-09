@@ -5,16 +5,14 @@ library(jsonlite)
 
 readAllCsv = function(caminho){
   arquivos = list.files(path = caminho, full.names = TRUE)
-  datalist = lapply(filenames, 
-                    function(x){read_csv(file = x,
-                                         header = TRUE,
-                                         stringsAsFactors = FALSE)})
+  datalist = lapply(arquivos, 
+                    function(x){read_csv(file = x)})
   Reduce(function(x,y) {merge(x, y, all = TRUE)}, datalist)
 }
 
 readAllRds = function(caminho){
   arquivos = list.files(path = caminho, full.names = TRUE)
-  datalist = lapply(filenames, function(x){readRDS(file = x)})
+  datalist = lapply(arquivos, function(x){readRDS(file = x)})
   Reduce(function(x,y) {merge(x, y, all = TRUE)}, datalist)
 }
 
@@ -37,15 +35,18 @@ atual <- atual %>%
   select(id, Date, Payee, Memo, Outflow, Inflow)
 
 saveRDS(atual, file = paste("./data_rds/nubank_",ymd(today()),".RDS",  sep = ""))
+rm(atual)
 
 # Atualização de dados
 rdsAtual <- readAllRds('./data_rds/')
 csvAtual <- readAllCsv('./data_csv/')
-newdata  <- dplyr::setdiff(rdsAtual, csvAtual) #e se for vazio?
-newcsv   <- newdata %>% select(-id)
-write_csv(newcsv, paste("./data_csv/csv_",ymd(today()),".csv",  sep = ""))
-write_csv(newdata, paste("./data_ynab/ynab_",ymd(today()),".csv",  sep = ""))
 
-# TODO: funcionando, buscar deletar arquivos e dados supérfluos
-
-
+if(!is.null(rsdAtual, csvAtual)){
+  diff <- dplyr::setdiff(rdsAtual, csvAtual);
+  if(nrow(diff) > 0){
+    ynab <- diff %>% select(-id);
+    write_csv(diff, paste("./data_csv/csv_",ymd(today()),".csv",  sep = ""));
+    write_csv(ynab, paste("./data_ynab/ynab_",ymd(today()),".csv",  sep = ""));
+    rm(csvAtual, rdsAtual);
+  }
+}
