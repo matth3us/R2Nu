@@ -2,6 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
 data_rds/
 data_csv/
 data_ynab/
+=======
+data_json/
+data_rds/
+>>>>>>> e4dc2b59b152eaec535bf1bf0ce921c12e40e641
