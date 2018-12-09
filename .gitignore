@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+data_json/
+data_rds/
